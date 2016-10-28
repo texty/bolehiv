@@ -1,5 +1,5 @@
 //initialize map
-var map = L.map('map', {scrollWheelZoom:false}).setView([49.066944, 23.851389], 13);
+var map = L.map('map', {scrollWheelZoom:false}).setView([49.066944, 23.851389], 14);
 
 // add base map
 var CartoDB_PositronNoLabels = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png', {
@@ -8,8 +8,9 @@ var CartoDB_PositronNoLabels = L.tileLayer('http://{s}.basemaps.cartocdn.com/lig
         maxZoom: 17
       }).addTo(map);
 
+
 //add marker
-var marker = L.popup().setLatLng([49.066944, 23.851389]).setContent("Болехів").openOn(map);
+//var marker = L.popup().setLatLng([49.066944, 23.851389]).setContent("Болехів").openOn(map);
 
 //add points
 var lmap = new L.LayerGroup();
@@ -20,8 +21,9 @@ $.getJSON("data/bolehiv.geojson", function(data){
   function style(feature) {
     return {
       radius: 6,
-      fillColor: 'red',
-      weight: 0,
+      fillColor: '#5B7C8A',
+      color: '#FEFFEA',
+      weight: 2,
       opacity: 1,
       fillOpacity: 0.75
       };
@@ -37,7 +39,7 @@ $.getJSON("data/bolehiv.geojson", function(data){
          }).addTo(lmap);
        });
 
-      
+lmap.addTo(map);
 
 // var licenses = L.geoJson();
 //     licenses.addTo(map);
