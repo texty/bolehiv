@@ -1,5 +1,5 @@
 //initialize map
-var map = L.map('map', {scrollWheelZoom:false}).setView([49.066944, 23.851389], 13);
+var map = L.map('map', {scrollWheelZoom:false}).setView([49.066944, 23.851389], 14);
 
 // add base map
 var CartoDB_PositronNoLabels = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png', {
@@ -34,24 +34,24 @@ $.getJSON("data/bolehiv.geojson", function(data){
             return L.circleMarker(latlng, style(feature));
            },
            onEachFeature: function (feature, layer) {
-             layer.bindPopup('<b>' + feature.properties.name.toUpperCase() + '</b>' + '<br><hr>' + feature.properties.address + '<br>' + 'номер ліцензії: ' + feature.properties.number.bold() + '<br>' + 'дійсна до ' + feature.properties.to.bold());
+             layer.bindPopup('<b>' + feature.properties.name.toUpperCase() + '</b>' + '<br><hr>' + feature.properties.address + '<br>' + 'ліцензія дійсна до ' + feature.properties.to);
            }
          }).addTo(lmap);
        });
 
 lmap.addTo(map);
 
+// var licenses = L.geoJson();
+//     licenses.addTo(map);
+//
+// $.ajax({
+// dataType: "json",
+// url: "data/bolehiv.geojson",
+// success: function(data) {
+//     $(data.features).each(function(key, data) {
+//         licenses.addData(data);
+//     });
+// }
+// }).error(function() {});
+
 //add legend
-var legend = L.control({position: 'bottomleft'});
-
-legend.onAdd = function (map) {
-    var div = L.DomUtil.create('div', 'info legend'),
-        colors = ['#d3c756', '#327C8C'],
-        labels = ['місця без ліцензії', 'місця з ліцензією'];
-    for (var i = 0; i < colors.length; i++) {
-        div.innerHTML += '<i class="fa fa-circle" aria-hidden="true" style="color:' + colors[i] + '"></i> ' + labels[i] + '<br>';
-          }
-    return div;
-    };
-
-map.addControl(legend);
