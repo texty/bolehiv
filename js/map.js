@@ -8,13 +8,7 @@ var CartoDB_PositronNoLabels = L.tileLayer('http://{s}.basemaps.cartocdn.com/lig
         maxZoom: 17
       }).addTo(map);
 
-
-//add marker
-//var marker = L.popup().setLatLng([49.066944, 23.851389]).setContent("Болехів").openOn(map);
-
-//add points
-var lmap = new L.LayerGroup();
-
+//add licenses points
 $.getJSON("data/bolehiv.geojson", function(data){
 
 //define style
@@ -36,10 +30,34 @@ $.getJSON("data/bolehiv.geojson", function(data){
            onEachFeature: function (feature, layer) {
              layer.bindPopup('<b>' + feature.properties.name.toUpperCase() + '</b>' + '<br><hr>' + feature.properties.address + '<br>' + 'номер ліцензії: ' + feature.properties.number.bold() + '<br>' + 'дійсна до ' + feature.properties.to.bold());
            }
-         }).addTo(lmap);
+         }).addTo(map);
        });
 
-lmap.addTo(map);
+// add illegal points
+$.getJSON("data/bolehiv_illegal.geojson", function(data){
+
+//define style
+  function style(feature) {
+    return {
+      radius: 6,
+      fillColor: '#d3c756',
+      color: '#FEFFEA',
+      weight: 2,
+      opacity: 1,
+      fillOpacity: 0.75
+      };
+    }
+
+    L.geoJson(data, {
+          pointToLayer: function(feature, latlng){
+            return L.circleMarker(latlng, style(feature));
+           },
+           onEachFeature: function (feature, layer) {
+             layer.bindPopup('<b>' + feature.properties.name.toUpperCase() + '</b>' + '<br><hr>' + feature.properties.address);
+           }
+         }).addTo(map);
+       });
+
 
 //add legend
 var legend = L.control({position: 'bottomleft'});

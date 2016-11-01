@@ -1,0 +1,14 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+                                                                                
+"features": [
+{ "type": "Feature", "properties": { "lat": 49.051316, "lon": 23.872046, "address": " вулиця Данила Галицького, 124В", "name": " ресторан Смарагд" }, "geometry": { "type": "Point", "coordinates": [ 23.872046, 49.051316 ] } },
+{ "type": "Feature", "properties": { "lat": 49.0562, "lon": 23.876051, "address": " вулиця Данила Галицького, 171", "name": " магазин Оксана" }, "geometry": { "type": "Point", "coordinates": [ 23.876051, 49.0562 ] } },
+{ "type": "Feature", "properties": { "lat": 49.066959, "lon": 23.859401, "address": " вулиця Данила Галицького, 59", "name": " магазин Сонечко" }, "geometry": { "type": "Point", "coordinates": [ 23.859401, 49.066959 ] } },
+{ "type": "Feature", "properties": { "lat": 49.063778, "lon": 23.859488, "address": " вулиця Озаркевичів, 3", "name": " магазин Мрія" }, "geometry": { "type": "Point", "coordinates": [ 23.859488, 49.063778 ] } },
+{ "type": "Feature", "properties": { "lat": 49.080602, "lon": 23.853764, "address": " вулиця Стрийська, 2А", "name": " ПП Соболь" }, "geometry": { "type": "Point", "coordinates": [ 23.853764, 49.080602 ] } },
+{ "type": "Feature", "properties": { "lat": 49.085259, "lon": 23.832338, "address": " вулиця 24 серпня, 4", "name": " магазин Фортуна" }, "geometry": { "type": "Point", "coordinates": [ 23.832338, 49.085259 ] } },
+{ "type": "Feature", "properties": { "lat": 49.049915, "lon": 23.869908, "address": " вулиця Данила Галицького, 143", "name": " магазин Міні-маркет" }, "geometry": { "type": "Point", "coordinates": [ 23.869908, 49.049915 ] } }
+]
+}
