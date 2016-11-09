@@ -59,6 +59,14 @@ h1 {
   font-size: 1em;
 }
 
+figcaption {
+  text-align:center;
+  font-size:1.3em;
+  font-style:italic;
+  position: relative;
+  top:-2em;
+}
+
 #map {
   margin-bottom: 20px;
   height:650px;
