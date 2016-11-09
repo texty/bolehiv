@@ -1,5 +1,5 @@
 //initialize map
-var map = L.map('map', {scrollWheelZoom:false}).setView([49.066944, 23.851389], 13);
+var map = L.map('map', {scrollWheelZoom:false}).setView([49.066959, 23.859401], 14);
 
 // add base map
 var CartoDB_PositronNoLabels = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png', {
@@ -53,7 +53,7 @@ $.getJSON("data/bolehiv_illegal.geojson", function(data){
             return L.circleMarker(latlng, style(feature));
            },
            onEachFeature: function (feature, layer) {
-             layer.bindPopup('<b>' + feature.properties.name.toUpperCase() + '</b>' + '<br><hr>' + feature.properties.address);
+             layer.bindPopup('<b>' + feature.properties.name.toUpperCase() + '</b>' + '<br><hr>' + feature.properties.address + '<br>' + feature.properties.description);
            }
          }).addTo(map);
        });
