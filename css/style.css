@@ -60,11 +60,12 @@ h1 {
 }
 
 figcaption {
-  text-align:center;
+  text-align:right;
   font-size:1.3em;
   font-style:italic;
   position: relative;
-  top:-2em;
+  top:-4em;
+  padding-right: 25px;
 }
 
 #map {
